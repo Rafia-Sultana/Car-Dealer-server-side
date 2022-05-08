@@ -76,8 +76,8 @@ async function run() {
                     quantity: updatedQuantity
                 }
             };
-            const result = await itemCollection.updateOne(query, updatedDoc, options);
-            res.send(result);
+            const result1 = await itemCollection.updateOne(query, updatedDoc, options);
+            res.send(result1);
 
         })
 
