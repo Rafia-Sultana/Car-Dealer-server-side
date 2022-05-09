@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 
 //middleware
@@ -57,11 +57,14 @@ async function run() {
         })
 
         // get specific users item
-        app.get('/item', async (req, res) => {
+        app.get('/useritem', async (req, res) => {
             const email = req.query.email;
             const query = { supplierEmail: email }
+            //console.log(email, query);
             const result = await itemCollection.find(query).toArray()
-            res.send(result).status(200)
+            // res.send(result).status(200)
+            console.log(result);
+            res.send(result)
         })
 
         //update quantity
